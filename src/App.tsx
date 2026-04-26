@@ -526,9 +526,9 @@ function AppInner() {
               transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="lg:absolute right-8 xl:right-16 top-1/2 lg:-translate-y-1/2 text-center lg:text-right w-full lg:w-auto mt-2 lg:mt-0"
             >
-              <h1 className="font-serif text-[3.5rem] xs:text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] leading-[0.9] tracking-tight text-white drop-shadow-lg">
+              <p className="font-serif text-[3.5rem] xs:text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] leading-[0.9] tracking-tight text-white drop-shadow-lg">
                 <span className="lg:hidden"> </span>Del Sur.
-              </h1>
+              </p>
             </motion.div>
 
             {/* CTAs Widget */}
