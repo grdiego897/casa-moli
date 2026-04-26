@@ -1,66 +1,293 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0A0A0A" />
 
-    <!-- SEO primario -->
-    <title>Casa Moli | Casa Turística en Barbate, Cádiz</title>
-    <meta name="description" content="Casa turística en el corazón de Barbate, Costa de la Luz. Vivienda andaluza restaurada con patio, 2 habitaciones para 4 personas, a 5 minutos de la playa." />
-    <meta name="keywords" content="casa turistica barbate, alojamiento barbate, alquiler vacacional barbate, costa de la luz, cádiz turismo" />
-    <link rel="canonical" href="https://casamoli.es" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="author" content="Casa Moli" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large" />
+  <meta name="geo.region" content="ES-CA" />
+  <meta name="geo.placename" content="Barbate, Cádiz" />
+  <meta name="geo.position" content="36.1892;-5.9220" />
+  <meta name="ICBM" content="36.1892, -5.9220" />
 
-    <!-- Open Graph (previsualización al compartir) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://casamoli.es" />
-    <meta property="og:title" content="Casa Moli | Casa Turística en Barbate, Cádiz" />
-    <meta property="og:description" content="Vivienda costera andaluza restaurada en Barbate. Patio privado, 2 habitaciones, para 4 personas. A 5 minutos de la playa." />
-    <meta property="og:image" content="https://casamoli.es/img/bghero.png" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="Casa Moli" />
+  <!-- SEO primario -->
+  <title>Casa Moli — Casa turística en Barbate, Cádiz | A 5 min de la playa</title>
+  <meta name="description"
+    content="Casa Moli es una casa turística andaluza restaurada en el centro de Barbate, Costa de la Luz (Cádiz). Patio privado, 2 dormitorios, capacidad para 4 personas, a 5 minutos a pie de la playa. Reserva directa sin comisiones." />
+  <meta name="keywords"
+    content="casa turistica Barbate, alojamiento Barbate, alquiler vacacional Barbate, casa rural Cádiz, Costa de la Luz, alojamiento Zahara de los Atunes, alquiler casa Barbate playa, vivienda turística Cádiz" />
+  <link rel="canonical" href="https://casamoli.es/" />
 
-    <!-- Datos estructurados (Google Rich Results) -->
-    <script type="application/ld+json">
+  <!-- Multilingüe (misma URL, idioma controlado por la app) -->
+  <link rel="alternate" hreflang="es" href="https://casamoli.es/" />
+  <link rel="alternate" hreflang="en" href="https://casamoli.es/" />
+  <link rel="alternate" hreflang="fr" href="https://casamoli.es/" />
+  <link rel="alternate" hreflang="de" href="https://casamoli.es/" />
+  <link rel="alternate" hreflang="x-default" href="https://casamoli.es/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://casamoli.es/" />
+  <meta property="og:title" content="Casa Moli — Casa turística en Barbate, Cádiz" />
+  <meta property="og:description"
+    content="Vivienda costera andaluza restaurada en Barbate. Patio privado, 2 dormitorios, para 4 personas. A 5 minutos de la playa. Reserva directa sin comisiones." />
+  <meta property="og:image" content="https://casamoli.es/img/bghero.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Casa Moli — patio andaluz tradicional en Barbate, Cádiz" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:locale:alternate" content="de_DE" />
+  <meta property="og:site_name" content="Casa Moli" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Casa Moli — Casa turística en Barbate, Cádiz" />
+  <meta name="twitter:description"
+    content="Vivienda andaluza restaurada en Barbate. Patio privado, 2 dormitorios, para 4 personas. A 5 minutos de la playa." />
+  <meta name="twitter:image" content="https://casamoli.es/img/bghero.png" />
+  <meta name="twitter:image:alt" content="Casa Moli — patio andaluz tradicional en Barbate" />
+
+  <!-- Iconos -->
+  <link rel="icon" type="image/png" href="/img/logoarc.png" />
+  <link rel="shortcut icon" href="/img/logoarc.png" />
+  <link rel="apple-touch-icon" href="/img/logoarc.png" />
+
+  <!-- Preconnect / preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/img/bghero.png" fetchpriority="high" />
+
+  <!-- Datos estructurados: VacationRental (principal para alquiler turístico) -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LodgingBusiness",
+      "@type": ["LodgingBusiness", "VacationRental"],
+      "@id": "https://casamoli.es/#lodging",
       "name": "Casa Moli",
-      "description": "Casa turística en el corazón de Barbate. Vivienda costera andaluza restaurada con patio privado, 2 habitaciones y capacidad para 4 personas. A 5 minutos de la playa.",
-      "url": "https://casamoli.es",
+      "alternateName": "Casa Moli Barbate",
+      "description": "Casa turística andaluza restaurada en el centro de Barbate, Costa de la Luz. Patio privado, 2 dormitorios, capacidad para 4 personas, a 5 minutos a pie de la playa. Ideal para familias y parejas que buscan una escapada tranquila en la provincia de Cádiz.",
+      "url": "https://casamoli.es/",
       "telephone": "+34696742513",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "logo": "https://casamoli.es/img/logoarc.png",
+      "image": [
+        "https://casamoli.es/img/bghero.png",
+        "https://casamoli.es/img/casa/salon.avif",
+        "https://casamoli.es/img/casa/patio1.png",
+        "https://casamoli.es/img/casa/habitacion1.avif",
+        "https://casamoli.es/img/casa/bano.avif",
+        "https://casamoli.es/img/casa/duchapatio.avif"
+      ],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Barbate",
         "addressRegion": "Cádiz",
+        "postalCode": "11160",
         "addressCountry": "ES"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 36.1892,
+        "longitude": -5.9220
+      },
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Barbate, Costa de la Luz, Cádiz, Andalucía, España"
+      },
+      "numberOfRooms": 2,
+      "numberOfBedrooms": 2,
+      "numberOfBathroomsTotal": 1,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 4,
+        "unitCode": "C62"
+      },
+      "petsAllowed": false,
+      "smokingAllowed": false,
       "amenityFeature": [
         { "@type": "LocationFeatureSpecification", "name": "Patio privado", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Ducha exterior", "value": true }
+        { "@type": "LocationFeatureSpecification", "name": "Ducha exterior", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cocina equipada", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Aire acondicionado", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Ropa de cama incluida", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Ideal para familias", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "A 5 min a pie de la playa", "value": true }
       ],
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://casamoli.es/img/logoarc.png"
+      "knowsLanguage": ["es", "en", "fr", "de"],
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": "https://www.airbnb.com/rooms/990479684820183934",
+        "name": "Reservar Casa Moli"
       },
-      "image": "https://casamoli.es/img/bghero.png",
-      "numberOfRooms": 2,
-      "occupancy": { "@type": "QuantitativeValue", "maxValue": 4 },
+      "sameAs": [
+        "https://www.airbnb.com/rooms/990479684820183934"
+      ]
+    }
+    </script>
+
+  <!-- Datos estructurados: Place (Barbate y entorno) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristDestination",
+      "@id": "https://casamoli.es/#barbate",
+      "name": "Barbate",
+      "description": "Pueblo costero de la Costa de la Luz, en la provincia de Cádiz, conocido por sus playas vírgenes, el atún rojo de almadraba y el Parque Natural de la Breña y Marismas de Barbate.",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 36.1892,
+        "longitude": -5.9220
+      },
+      "containedInPlace": [
+        { "@type": "AdministrativeArea", "name": "Provincia de Cádiz" },
+        { "@type": "AdministrativeArea", "name": "Andalucía" }
+      ],
+      "touristType": ["Familias", "Parejas", "Surfistas", "Amantes de la gastronomía"],
+      "includesAttraction": [
+        { "@type": "TouristAttraction", "name": "Playa de Barbate" },
+        { "@type": "TouristAttraction", "name": "Cabo de Trafalgar" },
+        { "@type": "TouristAttraction", "name": "Zahara de los Atunes" },
+        { "@type": "TouristAttraction", "name": "Parque Natural de la Breña y Marismas de Barbate" },
+        { "@type": "TouristAttraction", "name": "Playa de los Caños de Meca" }
+      ]
+    }
+    </script>
+
+  <!-- Datos estructurados: Organization -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://casamoli.es/#org",
+      "name": "Casa Moli",
+      "url": "https://casamoli.es/",
+      "logo": "https://casamoli.es/img/logoarc.png",
+      "telephone": "+34696742513",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+34696742513",
+        "contactType": "reservations",
+        "availableLanguage": ["Spanish", "English", "French", "German"]
+      },
       "sameAs": ["https://www.airbnb.com/rooms/990479684820183934"]
     }
     </script>
 
-    <link rel="icon" type="image/png" href="/img/logoarc.png" />
-    <link rel="shortcut icon" href="/img/logoarc.png" />
-    <link rel="apple-touch-icon" href="/img/logoarc.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+  <!-- Datos estructurados: FAQPage -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Dónde está Casa Moli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Casa Moli está en el centro de Barbate, en la Costa de la Luz (provincia de Cádiz, Andalucía, España), a unos 5 minutos a pie de la playa de Barbate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Para cuántas personas es Casa Moli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Casa Moli tiene 2 dormitorios y capacidad para 4 personas. Es ideal para familias o dos parejas que viajan juntas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿A qué distancia está la playa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La playa de Barbate está a unos 5 minutos andando desde Casa Moli. Otras playas como Zahara de los Atunes, Los Caños de Meca o el Cabo de Trafalgar están a 10–20 minutos en coche."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede reservar sin comisiones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Puedes reservar directamente por WhatsApp al +34 696 742 513 o por teléfono, sin pagar comisiones de plataforma. También está disponible en Airbnb."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tiene aire acondicionado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, Casa Moli incluye aire acondicionado, cocina equipada, y ducha interior y exterior en un patio andaluz privado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es adecuada para familias?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, Casa Moli está diseñada para familias y grupos de hasta 4 personas, con espacios tranquilos, patio privado y ubicación segura en el centro de Barbate."
+          }
+        }
+      ]
+    }
+    </script>
 
+  <!-- Datos estructurados: BreadcrumbList -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "España", "item": "https://casamoli.es/" },
+        { "@type": "ListItem", "position": 2, "name": "Andalucía", "item": "https://casamoli.es/" },
+        { "@type": "ListItem", "position": 3, "name": "Cádiz", "item": "https://casamoli.es/" },
+        { "@type": "ListItem", "position": 4, "name": "Barbate", "item": "https://casamoli.es/" },
+        { "@type": "ListItem", "position": 5, "name": "Casa Moli", "item": "https://casamoli.es/" }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+  <!-- Contenido SEO/LLMO accesible aunque JS falle: bots y lectores lo leen primero -->
+  <div id="root">
+    <noscript>
+      <h1>Casa Moli — Casa turística en Barbate, Cádiz</h1>
+      <p>Casa Moli es una vivienda andaluza restaurada en el centro de Barbate, Costa de la Luz (Cádiz, España). Patio
+        privado, 2 dormitorios, capacidad para 4 personas, a 5 minutos a pie de la playa. Reserva directa por <a
+          href="https://wa.me/34696742513">WhatsApp</a> o <a href="tel:+34696742513">teléfono +34 696 742 513</a>.
+        También disponible en <a href="https://www.airbnb.com/rooms/990479684820183934">Airbnb</a>.</p>
+    </noscript>
+  </div>
+
+  <!-- Contenido semántico server-rendered para crawlers/LLMs (oculto visualmente, sin display:none) -->
+  <div aria-hidden="true"
+    style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">
+    <article>
+      <h1>Casa Moli — Casa turística en Barbate, Cádiz</h1>
+      <p>Casa Moli es una casa turística andaluza restaurada situada en el centro de Barbate, en la Costa de la Luz,
+        provincia de Cádiz (Andalucía, España). La vivienda cuenta con 2 dormitorios, 1 baño, cocina equipada, salón,
+        patio andaluz privado con ducha exterior y aire acondicionado, con capacidad para 4 personas.
+        Está a aproximadamente 5 minutos andando de la playa de Barbate.</p>
+      <h2>Ubicación</h2>
+      <p>Barbate forma parte del Parque Natural de la Breña y Marismas de Barbate. Desde Casa Moli se puede acceder en
+        pocos minutos en coche a Zahara de los Atunes, Los Caños de Meca, el Cabo de Trafalgar, Vejer de la Frontera,
+        Conil de la Frontera y Tarifa.</p>
+      <h2>Reservas</h2>
+      <p>Reserva directa sin comisiones por WhatsApp al +34 696 742 513 o por teléfono. También disponible en Airbnb.
+        Idiomas atendidos: español, inglés, francés y alemán.</p>
+    </article>
+  </div>
+
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

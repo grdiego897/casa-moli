@@ -53,6 +53,11 @@ type Dict = {
     locationSubtitle: string;
     rights: string;
   };
+  faq: {
+    title: string;
+    subtitle: string;
+    items: { q: string; a: string }[];
+  };
 };
 
 export const TRANSLATIONS: Record<Lang, Dict> = {
@@ -100,6 +105,18 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       locationSubtitle: 'En el corazón de Barbate.',
       rights: 'Todos los derechos reservados.',
     },
+    faq: {
+      title: 'Preguntas frecuentes',
+      subtitle: 'Lo que más nos preguntan antes de reservar.',
+      items: [
+        { q: '¿Dónde está Casa Moli?', a: 'En el centro de Barbate, en la Costa de la Luz (Cádiz, Andalucía), a unos 5 minutos a pie de la playa.' },
+        { q: '¿Para cuántas personas es?', a: 'Casa Moli tiene 2 dormitorios y capacidad para 4 personas. Es ideal para familias o dos parejas.' },
+        { q: '¿A qué distancia está la playa?', a: 'A 5 minutos a pie de la playa de Barbate. Zahara de los Atunes, Los Caños de Meca y el Cabo de Trafalgar están a 10–20 min en coche.' },
+        { q: '¿Puedo reservar sin comisiones?', a: 'Sí. Reserva directa por WhatsApp al +34 696 742 513 o por teléfono, sin comisiones de plataforma. También está en Airbnb.' },
+        { q: '¿Tiene aire acondicionado?', a: 'Sí, Casa Moli incluye aire acondicionado, cocina equipada, y ducha interior y exterior en un patio andaluz privado.' },
+        { q: '¿Es adecuada para familias?', a: 'Sí. Pensada para familias y grupos de hasta 4 personas, con espacios tranquilos y ubicación segura en el centro de Barbate.' },
+      ],
+    },
   },
   en: {
     nav: { concept: 'Concept', gallery: 'The House', location: 'Barbate', reserve: 'Book', menuOpen: 'Open menu', menuClose: 'Close menu' },
@@ -144,6 +161,18 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       locationTitle: 'Perfect Location',
       locationSubtitle: 'In the heart of Barbate.',
       rights: 'All rights reserved.',
+    },
+    faq: {
+      title: 'Frequently asked questions',
+      subtitle: 'The questions guests ask us most before booking.',
+      items: [
+        { q: 'Where is Casa Moli located?', a: 'In the center of Barbate, on the Costa de la Luz (Cádiz, Andalusia, Spain), about a 5-minute walk from the beach.' },
+        { q: 'How many guests fit in the house?', a: 'Casa Moli has 2 bedrooms and sleeps up to 4 guests. Ideal for families or two couples.' },
+        { q: 'How far is the beach?', a: '5 minutes on foot to Playa de Barbate. Zahara de los Atunes, Los Caños de Meca and Cabo de Trafalgar are 10–20 min by car.' },
+        { q: 'Can I book without fees?', a: 'Yes. Book directly via WhatsApp at +34 696 742 513 or by phone — no platform commission. Also available on Airbnb.' },
+        { q: 'Does it have air conditioning?', a: 'Yes. Casa Moli includes air conditioning, a fully equipped kitchen, and both indoor and outdoor showers in a private Andalusian patio.' },
+        { q: 'Is it family-friendly?', a: 'Yes. Designed for families and groups of up to 4, with quiet spaces and a safe location in central Barbate.' },
+      ],
     },
   },
   fr: {
@@ -190,6 +219,18 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       locationSubtitle: 'Au cœur de Barbate.',
       rights: 'Tous droits réservés.',
     },
+    faq: {
+      title: 'Questions fréquentes',
+      subtitle: 'Les questions que les voyageurs nous posent le plus avant de réserver.',
+      items: [
+        { q: 'Où se trouve Casa Moli ?', a: 'Au centre de Barbate, sur la Costa de la Luz (Cádiz, Andalousie), à environ 5 minutes à pied de la plage.' },
+        { q: 'Pour combien de personnes ?', a: 'Casa Moli dispose de 2 chambres et accueille jusqu’à 4 personnes. Idéal pour les familles ou deux couples.' },
+        { q: 'À quelle distance de la plage ?', a: 'À 5 min à pied de la plage de Barbate. Zahara de los Atunes, Los Caños de Meca et le Cabo de Trafalgar sont à 10–20 min en voiture.' },
+        { q: 'Peut-on réserver sans commission ?', a: 'Oui. Réservation directe par WhatsApp au +34 696 742 513 ou par téléphone, sans commission. Également sur Airbnb.' },
+        { q: 'Y a-t-il la climatisation ?', a: 'Oui. Casa Moli dispose de la climatisation, d\'une cuisine équipée, et d\'une douche intérieure et extérieure dans un patio andalou privé.' },
+        { q: 'Est-ce adapté aux familles ?', a: 'Oui. Conçue pour les familles et groupes jusqu’à 4 personnes, dans un environnement calme au centre de Barbate.' },
+      ],
+    },
   },
   de: {
     nav: { concept: 'Konzept', gallery: 'Das Haus', location: 'Barbate', reserve: 'Buchen', menuOpen: 'Menü öffnen', menuClose: 'Menü schließen' },
@@ -234,6 +275,18 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       locationTitle: 'Perfekte Lage',
       locationSubtitle: 'Im Herzen von Barbate.',
       rights: 'Alle Rechte vorbehalten.',
+    },
+    faq: {
+      title: 'Häufige Fragen',
+      subtitle: 'Was Gäste uns vor der Buchung am häufigsten fragen.',
+      items: [
+        { q: 'Wo befindet sich Casa Moli?', a: 'Im Zentrum von Barbate, an der Costa de la Luz (Cádiz, Andalusien), etwa 5 Gehminuten vom Strand entfernt.' },
+        { q: 'Für wie viele Personen?', a: 'Casa Moli hat 2 Schlafzimmer und Platz für bis zu 4 Personen. Ideal für Familien oder zwei Paare.' },
+        { q: 'Wie weit ist der Strand?', a: '5 Minuten zu Fuß zum Strand von Barbate. Zahara de los Atunes, Los Caños de Meca und Cabo de Trafalgar liegen 10–20 Min. mit dem Auto entfernt.' },
+        { q: 'Kann man ohne Gebühren buchen?', a: 'Ja. Direktbuchung per WhatsApp unter +34 696 742 513 oder telefonisch — ohne Plattformprovision. Auch auf Airbnb verfügbar.' },
+        { q: 'Gibt es eine Klimaanlage?', a: 'Ja. Casa Moli verfügt über Klimaanlage, eine voll ausgestattete Küche sowie Innen- und Außendusche in einem privaten andalusischen Innenhof.' },
+        { q: 'Ist es familienfreundlich?', a: 'Ja. Gestaltet für Familien und Gruppen bis 4 Personen, mit ruhigen Räumen und sicherer Lage im Zentrum von Barbate.' },
+      ],
     },
   },
 };

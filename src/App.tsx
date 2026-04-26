@@ -60,7 +60,7 @@ type GalleryCardProps = {
 
 function GalleryCard({ src, alt, label, index, className = '' }: GalleryCardProps) {
   return (
-    <motion.div
+    <motion.figure
       initial={{ opacity: 0, y: 40, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-80px' }}
@@ -70,15 +70,17 @@ function GalleryCard({ src, alt, label, index, className = '' }: GalleryCardProp
       <img
         src={src}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent md:from-black/55 md:via-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"></div>
       {label && (
-        <span className="absolute bottom-4 left-5 sm:bottom-6 sm:left-8 right-5 sm:right-8 text-white font-serif text-xl sm:text-2xl opacity-100 md:opacity-0 md:translate-y-3 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500 drop-shadow-lg">
+        <figcaption className="absolute bottom-4 left-5 sm:bottom-6 sm:left-8 right-5 sm:right-8 text-white font-serif text-xl sm:text-2xl opacity-100 md:opacity-0 md:translate-y-3 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500 drop-shadow-lg">
           {label}
-        </span>
+        </figcaption>
       )}
-    </motion.div>
+    </motion.figure>
   );
 }
 
@@ -104,7 +106,9 @@ function PlayaWidget() {
     >
       <img
         src="/img/playa.webp"
-        alt="A 5 minutos de la playa"
+        alt="Playa de Barbate, Costa de la Luz, a 5 minutos a pie de Casa Moli"
+        loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover"
         style={{
           transform: hover ? 'scale(1.04)' : 'scale(1)',
@@ -162,7 +166,9 @@ function MesaWidget() {
     >
       <img
         src="/img/casa/mesapatio.avif"
-        alt="Mesa para cuatro"
+        alt="Mesa para cuatro en el patio andaluz de Casa Moli, Barbate"
+        loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover"
         style={{
           transform: hover ? 'scale(1.04)' : 'scale(1)',
@@ -200,6 +206,218 @@ function MesaWidget() {
         </div>
       </div>
     </motion.div>
+  );
+}
+
+type FaqItemProps = {
+  key?: React.Key;
+  item: { q: string; a: string };
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+};
+
+function FaqItem({ item, index, isOpen, onToggle }: FaqItemProps) {
+  const [isHover, setIsHover] = useState(false);
+  const number = String(index + 1).padStart(2, '0');
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.6, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      className="relative"
+    >
+      {/* Animated left rail when open or hovered */}
+      <motion.span
+        aria-hidden
+        className="absolute left-0 top-0 bottom-0 w-px bg-[#2C2C2C]"
+        initial={false}
+        animate={{
+          scaleY: isOpen ? 1 : isHover ? 0.4 : 0,
+          opacity: isOpen ? 1 : isHover ? 0.5 : 0,
+        }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+        style={{ transformOrigin: 'top' }}
+      />
+
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="w-full text-left py-5 sm:py-7 pl-5 sm:pl-8 pr-3 sm:pr-4 flex items-start gap-4 sm:gap-6 cursor-pointer group focus:outline-none"
+      >
+        {/* Index number */}
+        <motion.span
+          aria-hidden
+          className="font-serif text-xs sm:text-sm tracking-[0.25em] text-[#2C2C2C]/40 mt-2 flex-shrink-0 tabular-nums"
+          animate={{
+            color: isOpen ? 'rgba(44,44,44,0.9)' : isHover ? 'rgba(44,44,44,0.7)' : 'rgba(44,44,44,0.4)',
+            x: isOpen ? 2 : 0,
+          }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {number}
+        </motion.span>
+
+        {/* Question */}
+        <motion.h3
+          className="flex-1 font-serif text-lg sm:text-xl md:text-2xl leading-snug"
+          animate={{
+            color: isOpen ? '#2C2C2C' : isHover ? '#2C2C2C' : 'rgba(44,44,44,0.85)',
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          {item.q}
+        </motion.h3>
+
+        {/* Plus / Minus morphing icon */}
+        <motion.span
+          aria-hidden
+          className="relative mt-1.5 sm:mt-2 flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full border flex items-center justify-center"
+          animate={{
+            backgroundColor: isOpen ? '#2C2C2C' : isHover ? 'rgba(44,44,44,0.06)' : 'rgba(255,255,255,0)',
+            borderColor: isOpen ? '#2C2C2C' : 'rgba(44,44,44,0.25)',
+            scale: isHover && !isOpen ? 1.08 : 1,
+            rotate: isOpen ? 180 : 0,
+          }}
+          transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+        >
+          {/* Horizontal bar (always visible) */}
+          <motion.span
+            className="absolute h-px"
+            animate={{
+              backgroundColor: isOpen ? '#F9F8F6' : '#2C2C2C',
+              width: isOpen ? 12 : 11,
+            }}
+            transition={{ duration: 0.3 }}
+          />
+          {/* Vertical bar (collapses when open) */}
+          <motion.span
+            className="absolute w-px"
+            animate={{
+              backgroundColor: isOpen ? '#F9F8F6' : '#2C2C2C',
+              height: isOpen ? 0 : 11,
+              opacity: isOpen ? 0 : 1,
+            }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.span>
+      </button>
+
+      {/* Animated answer panel */}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: 'auto',
+              opacity: 1,
+              transition: {
+                height: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+                opacity: { duration: 0.4, delay: 0.1 },
+              },
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+              transition: {
+                height: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
+                opacity: { duration: 0.2 },
+              },
+            }}
+            className="overflow-hidden"
+          >
+            <motion.div
+              initial={{ y: -8 }}
+              animate={{ y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }}
+              exit={{ y: -8, transition: { duration: 0.2 } }}
+              className="pb-6 sm:pb-8 pl-12 sm:pl-[4.5rem] pr-12 sm:pr-16"
+            >
+              <p className="text-sm sm:text-base text-[#2C2C2C]/70 leading-relaxed font-light">
+                {item.a}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+function FaqSection() {
+  const t = useT();
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section
+      id="faq"
+      aria-labelledby="faq-title"
+      className="relative py-16 sm:py-20 md:py-32 px-5 sm:px-6 lg:px-12 max-w-4xl mx-auto"
+    >
+      {/* Decorative ambient gradient */}
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 1.2 }}
+        className="absolute inset-0 -z-10 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(60% 50% at 50% 0%, rgba(44,44,44,0.04), rgba(44,44,44,0) 70%)',
+        }}
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        className="text-center mb-12 sm:mb-16"
+      >
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.05 }}
+          className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#2C2C2C]/50 mb-4 sm:mb-5"
+        >
+          FAQ
+        </motion.span>
+        <h2
+          id="faq-title"
+          className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 leading-[1.05]"
+        >
+          {t.faq.title}
+        </h2>
+        <p className="text-base sm:text-lg text-[#2C2C2C]/60 font-light max-w-xl mx-auto">
+          {t.faq.subtitle}
+        </p>
+      </motion.div>
+
+      <div className="relative">
+        {/* Top hairline */}
+        <span className="absolute top-0 left-0 right-0 h-px bg-[#2C2C2C]/10" />
+        <div className="divide-y divide-[#2C2C2C]/10">
+          {t.faq.items.map((item, i) => (
+            <FaqItem
+              key={i}
+              item={item}
+              index={i}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
+          ))}
+        </div>
+        {/* Bottom hairline */}
+        <span className="absolute bottom-0 left-0 right-0 h-px bg-[#2C2C2C]/10" />
+      </div>
+    </section>
   );
 }
 
@@ -267,7 +485,7 @@ function AppInner() {
           >
             <nav className="pointer-events-auto mx-auto max-w-6xl relative flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white/70 backdrop-blur-xl border border-[#2C2C2C]/10 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.18)]">
               <a href="#" className="flex items-center gap-2 sm:gap-3 flex-1">
-                <img src="/img/logoarc.png" alt="Casa Moli logo" className="h-7 sm:h-8 w-auto" />
+                <img src="/img/logoarc.png" alt="Casa Moli — casa turística en Barbate" width="40" height="40" className="h-7 sm:h-8 w-auto" />
                 <span className="text-base sm:text-lg font-serif tracking-wide text-[#2C2C2C] hidden xs:block">Casa Moli.</span>
               </a>
 
@@ -275,6 +493,7 @@ function AppInner() {
                 {[
                   { href: '#concept', label: t.nav.concept },
                   { href: '#gallery', label: t.nav.gallery },
+                  { href: '#faq', label: t.faq.title },
                   { href: '#location', label: t.nav.location },
                 ].map(({ href, label }) => (
                   <a key={href} href={href} className="relative hover:text-[#2C2C2C] transition-colors group">
@@ -386,13 +605,14 @@ function AppInner() {
           {/* Navigation */}
           <nav className="relative z-30 flex items-center px-4 py-5 sm:px-6 sm:py-8 md:px-12">
             <div className="flex items-center gap-2 sm:gap-3 flex-1">
-              <img src="/img/logoarc.png" alt="Casa Moli logo" className="h-8 sm:h-10 w-auto" />
+              <img src="/img/logoarc.png" alt="Casa Moli — casa turística en Barbate, Cádiz" width="48" height="48" className="h-8 sm:h-10 w-auto" />
               <span className="text-lg sm:text-xl font-serif tracking-wide hidden sm:block">Casa Moli.</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider uppercase absolute left-1/2 -translate-x-1/2">
               <a href="#concept" className="hover:text-white/70 transition-colors">{t.nav.concept}</a>
               <a href="#gallery" className="hover:text-white/70 transition-colors">{t.nav.gallery}</a>
+              <a href="#faq" className="hover:text-white/70 transition-colors">{t.faq.title}</a>
               <a href="#location" className="hover:text-white/70 transition-colors">{t.nav.location}</a>
             </div>
 
@@ -778,7 +998,9 @@ function AppInner() {
             <div className="absolute inset-0 bg-[#2C2C2C]/10 z-10"></div>
             <img
               src="/img/casa/patio1.png"
-              alt="Patio tradicional andaluz minimalista"
+              alt="Patio andaluz tradicional con encalado y plantas en Casa Moli, Barbate"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <motion.div
@@ -816,7 +1038,7 @@ function AppInner() {
             {/* Image 1: Living Room */}
             <GalleryCard
               src="/img/casa/salon.avif"
-              alt={t.gallery.livingRoom}
+              alt="Salón principal de Casa Moli, casa turística en Barbate, Cádiz"
               label={t.gallery.livingRoom}
               index={0}
               className="md:col-span-8 aspect-[4/3] md:aspect-auto md:h-[60vh]"
@@ -825,7 +1047,7 @@ function AppInner() {
             {/* Image 2: Detail */}
             <GalleryCard
               src="/img/casa/mesapatio.avif"
-              alt={t.gallery.patioTable}
+              alt="Mesa para 4 personas en el patio andaluz de Casa Moli"
               label={t.gallery.patioTable}
               index={1}
               className="md:col-span-4 aspect-square md:aspect-auto md:h-[60vh]"
@@ -834,7 +1056,7 @@ function AppInner() {
             {/* Image 3: Bedroom 1 */}
             <GalleryCard
               src="/img/casa/habitacion1.avif"
-              alt={t.gallery.bedroom}
+              alt="Dormitorio con cama doble en Casa Moli, Barbate"
               label={t.gallery.bedroom}
               index={2}
               className="md:col-span-5 aspect-[4/5] md:h-[70vh] mt-0 md:mt-12"
@@ -843,7 +1065,7 @@ function AppInner() {
             {/* Image 4: Bathroom */}
             <GalleryCard
               src="/img/casa/bano.avif"
-              alt={t.gallery.bathroom}
+              alt="Baño completo de la casa turística Casa Moli en Barbate"
               label={t.gallery.bathroom}
               index={3}
               className="md:col-span-7 aspect-[4/3] md:h-[70vh] mt-0 md:mt-12"
@@ -852,7 +1074,7 @@ function AppInner() {
             {/* Image 5: Bedroom 2 */}
             <GalleryCard
               src="/img/casa/habitacion2.avif"
-              alt={t.gallery.secondBedroom}
+              alt="Segundo dormitorio de Casa Moli, alojamiento en Barbate"
               label={t.gallery.secondBedroom}
               index={4}
               className="md:col-span-6 aspect-[4/3] md:h-[60vh]"
@@ -861,7 +1083,7 @@ function AppInner() {
             {/* Image 6: Bedroom 2 detail */}
             <GalleryCard
               src="/img/casa/habitacion2p2.avif"
-              alt={t.gallery.secondBedroom}
+              alt="Detalle del segundo dormitorio en Casa Moli, Costa de la Luz"
               label=""
               index={5}
               className="md:col-span-6 aspect-[4/3] md:h-[60vh]"
@@ -870,7 +1092,7 @@ function AppInner() {
             {/* Row 4: Patios — asymmetric layout, one feature + two stacked */}
             <GalleryCard
               src="/img/casa/patio1.png"
-              alt={t.gallery.thePatio}
+              alt="Patio andaluz tradicional encalado de Casa Moli en el centro de Barbate"
               label={t.gallery.thePatio}
               index={6}
               className="md:col-span-7 aspect-[4/5] md:aspect-auto md:h-[80vh] mt-0 md:mt-12"
@@ -879,14 +1101,14 @@ function AppInner() {
             <div className="md:col-span-5 grid grid-cols-1 gap-3 sm:gap-4 mt-0 md:mt-12">
               <GalleryCard
                 src="/img/casa/duchapatio.avif"
-                alt={t.gallery.outdoorShower}
+                alt="Ducha exterior en el patio andaluz de Casa Moli, Barbate"
                 label={t.gallery.outdoorShower}
                 index={7}
                 className="aspect-[4/3] md:aspect-auto md:h-[calc(40vh-0.5rem)]"
               />
               <GalleryCard
                 src="/img/casa/patio2.avif"
-                alt={t.gallery.outdoorLife}
+                alt="Vida al aire libre en el patio de Casa Moli, Costa de la Luz"
                 label={t.gallery.outdoorLife}
                 index={8}
                 className="aspect-[4/3] md:aspect-auto md:h-[calc(40vh-0.5rem)]"
@@ -904,6 +1126,10 @@ function AppInner() {
 
         </div>
       </section >
+
+      {/* ===== FAQ SECTION (SEO + LLMO) ===== */}
+      <FaqSection />
+
 
       {/* ===== LOCATION & FOOTER ===== */}
       < footer id="location" className="bg-[#2C2C2C] text-[#F9F8F6] pt-16 sm:pt-24 pb-10 sm:pb-12 px-5 sm:px-6 lg:px-12 mt-10 sm:mt-12 rounded-t-[2rem] sm:rounded-t-[3rem] md:rounded-t-[4rem]" >
@@ -954,7 +1180,9 @@ function AppInner() {
               <div className="w-full h-full rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden relative">
                 <img
                   src="/img/bbtdron.png"
-                  alt="Costa de Barbate y mar"
+                  alt="Vista aérea de Barbate y la Costa de la Luz, Cádiz"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/10"></div>
@@ -965,7 +1193,7 @@ function AppInner() {
           {/* Bottom Footer Area */}
           <div className="border-t border-[#F9F8F6]/10 pt-8 sm:pt-12 flex flex-col md:flex-row items-center gap-6 sm:gap-8">
             <div className="flex-1 flex items-center gap-3">
-              <img src="/img/logoarc.png" alt="Casa Moli logo" className="h-8 sm:h-10 w-auto mix-blend-screen" />
+              <img src="/img/logoarc.png" alt="Casa Moli — casa turística en Barbate, Cádiz" width="48" height="48" className="h-8 sm:h-10 w-auto mix-blend-screen" />
               <span className="text-lg sm:text-xl font-serif tracking-wide">Casa Moli.</span>
             </div>
 

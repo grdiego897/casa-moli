@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://casamoli.es/</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casamoli.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://casamoli.es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://casamoli.es/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://casamoli.es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casamoli.es/" />
+    <image:image>
+      <image:loc>https://casamoli.es/img/bghero.png</image:loc>
+      <image:title>Casa Moli — fachada andaluza en Barbate</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://casamoli.es/img/casa/patio1.png</image:loc>
+      <image:title>Patio andaluz tradicional de Casa Moli</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://casamoli.es/img/casa/salon.avif</image:loc>
+      <image:title>Salón principal de Casa Moli, Barbate</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://casamoli.es/img/casa/habitacion1.avif</image:loc>
+      <image:title>Dormitorio con cama doble en Casa Moli</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://casamoli.es/img/playa.webp</image:loc>
+      <image:title>Playa de Barbate, Costa de la Luz</image:title>
+    </image:image>
   </url>
 </urlset>
