@@ -1059,7 +1059,7 @@ function AppInner() {
               alt="Dormitorio con cama doble en Casa Moli, Barbate"
               label={t.gallery.bedroom}
               index={2}
-              className="md:col-span-5 aspect-[4/5] md:h-[70vh] mt-0 md:mt-12"
+              className="md:col-span-5 aspect-[4/5] md:aspect-auto md:h-[60vh]"
             />
 
             {/* Image 4: Bathroom */}
@@ -1068,7 +1068,7 @@ function AppInner() {
               alt="Baño completo de la casa turística Casa Moli en Barbate"
               label={t.gallery.bathroom}
               index={3}
-              className="md:col-span-7 aspect-[4/3] md:h-[70vh] mt-0 md:mt-12"
+              className="md:col-span-7 aspect-[4/3] md:aspect-auto md:h-[60vh]"
             />
 
             {/* Image 5: Bedroom 2 */}
@@ -1095,23 +1095,23 @@ function AppInner() {
               alt="Patio andaluz tradicional encalado de Casa Moli en el centro de Barbate"
               label={t.gallery.thePatio}
               index={6}
-              className="md:col-span-7 aspect-[4/5] md:aspect-auto md:h-[80vh] mt-0 md:mt-12"
+              className="md:col-span-7 aspect-[4/5] md:aspect-auto md:h-[60vh]"
             />
 
-            <div className="md:col-span-5 grid grid-cols-1 gap-3 sm:gap-4 mt-0 md:mt-12">
+            <div className="md:col-span-5 grid grid-cols-1 gap-3 sm:gap-4">
               <GalleryCard
                 src="/img/casa/duchapatio.avif"
                 alt="Ducha exterior en el patio andaluz de Casa Moli, Barbate"
                 label={t.gallery.outdoorShower}
                 index={7}
-                className="aspect-[4/3] md:aspect-auto md:h-[calc(40vh-0.5rem)]"
+                className="aspect-[4/3] md:aspect-auto md:h-[calc(30vh-0.5rem)]"
               />
               <GalleryCard
                 src="/img/casa/patio2.avif"
                 alt="Vida al aire libre en el patio de Casa Moli, Costa de la Luz"
                 label={t.gallery.outdoorLife}
                 index={8}
-                className="aspect-[4/3] md:aspect-auto md:h-[calc(40vh-0.5rem)]"
+                className="aspect-[4/3] md:aspect-auto md:h-[calc(30vh-0.5rem)]"
               />
             </div>
 
