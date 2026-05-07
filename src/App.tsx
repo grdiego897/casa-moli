@@ -1077,7 +1077,7 @@ function AppInner() {
               alt="Segundo dormitorio de Casa Moli, alojamiento en Barbate"
               label={t.gallery.secondBedroom}
               index={4}
-              className="md:col-span-6 aspect-[4/3] md:h-[60vh]"
+              className="md:col-span-8 aspect-[4/3] md:aspect-auto md:h-[60vh]"
             />
 
             {/* Image 6: Bedroom 2 detail */}
@@ -1086,7 +1086,7 @@ function AppInner() {
               alt="Detalle del segundo dormitorio en Casa Moli, Costa de la Luz"
               label=""
               index={5}
-              className="md:col-span-6 aspect-[4/3] md:h-[60vh]"
+              className="md:col-span-4 aspect-[4/3] md:aspect-auto md:h-[60vh]"
             />
 
             {/* Row 4: Patios — asymmetric layout, one feature + two stacked */}
