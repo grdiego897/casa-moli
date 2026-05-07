@@ -1117,8 +1117,8 @@ function AppInner() {
 
           </div>
 
-          <div className="mt-12 sm:mt-20 w-full max-w-5xl border-t border-[#2C2C2C]/10 pt-10 sm:pt-16 px-2 sm:px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+          <div className="mt-12 sm:mt-20 w-full max-w-7xl mx-auto border-t border-[#2C2C2C]/10 pt-10 sm:pt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <MesaWidget />
               <PlayaWidget />
             </div>
